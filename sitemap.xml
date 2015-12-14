@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://volcanoo.me/guestbook/index.html</loc>
+    <lastmod>2015-12-14T07:56:48.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://volcanoo.me/tags/index.html</loc>
+    <lastmod>2015-12-14T06:21:17.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://volcanoo.me/404.html</loc>
+    <lastmod>2015-12-14T05:34:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://volcanoo.me/about/index.html</loc>
+    <lastmod>2015-12-12T18:02:42.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://volcanoo.me/2015/12/12/Hello-World/</loc>
+    <lastmod>2015-12-12T09:34:09.000Z</lastmod>
+  </url>
+  
+</urlset>
