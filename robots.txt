@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://volcanoo.me/sitemap.xml
-Sitemap: http://volcanoo.me/baidusitemap.xml
+Sitemap: http://www.volcanoo.me/sitemap.xml
+Sitemap: http://www.volcanoo.me/baidusitemap.xml
