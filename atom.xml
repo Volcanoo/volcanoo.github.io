@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Volcanoo's Blog]]></title>
+  <subtitle><![CDATA[Remember that you are going to die]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://volcanoo.me/"/>
+  <updated>2016-01-31T06:29:24.000Z</updated>
+  <id>http://volcanoo.me/</id>
+  
+  <author>
+    <name><![CDATA[Volcanoo]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Windows10+Ubuntu双系统安装手记]]></title>
+    <link href="http://volcanoo.me/2016/01/31/Windows10-Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%89%8B%E8%AE%B0/"/>
+    <id>http://volcanoo.me/2016/01/31/Windows10-Ubuntu双系统安装手记/</id>
+    <published>2016-01-31T06:27:48.000Z</published>
+    <updated>2016-01-31T06:29:24.000Z</updated>
+    <content type="html"><![CDATA[<p>最近因为毕设重新回归Ubuntu，手头有一台装了Win10的<code>ThinkPad X240s</code>，最终成功完成了<code>Windows 10 教育版</code>和<code>Ubuntu Kylin 15.10</code> 的双系统配置，下文(多图慎入)是我完成整个过程的手记。</p>
+<h3 id="u5B89_u88C5_u65B9_u5F0F"><a href="#u5B89_u88C5_u65B9_u5F0F" class="headerlink" title="安装方式"></a>安装方式</h3><p>Ubuntu是很多Linux初学者最理想的选择，如果你恰好对Windows系列审美疲劳或者累觉不爱，那就要听好，有三种方法助你走进Ubuntu新世界。</p>
+<ol>
+<li><p><strong>虚拟机安装</strong><br><code>原料</code>：Ubuntu Kylin的<a href="http://www.ubuntukylin.com/downloads/" target="_blank" rel="external">ISO</a>、<a href="https://my.vmware.com/cn/web/vmware/downloads" target="_blank" rel="external">VMware</a>或<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">VirtualBox</a><br><code>优点</code>：一条龙服务，安全简单<br><code>缺点</code>：用户体验差，隔靴搔痒</p>
+</li>
+<li><p><strong>Wubi安装</strong><br><code>原料</code>：Ubuntu Kylin的<a href="http://www.ubuntukylin.com/downloads/" target="_blank" rel="external">ISO</a>、wubi.exe<br><code>优点</code>：即点即用，默认Windows开机引导<br><code>缺点</code>：易死机，待机和网络易出问题</p>
+</li>
+<li><p><strong>U盘安装</strong><br><code>原料</code>：Ubuntu Kylin的<a href="http://www.ubuntukylin.com/downloads/" target="_blank" rel="external">ISO</a>、<a href="http://cn.ultraiso.net/xiazai.html" target="_blank" rel="external">UltraISO</a>、<a href="http://neosmart.net/EasyBCD/" target="_blank" rel="external">EasyBCD</a>、U盘(&gt;=2G)<br><code>优点</code>：简单安全，正牌双系统<br><code>缺点</code>：默认Ubuntu开机引导</p>
+</li>
+</ol>
+<p>###安装环境<br>本人的原则是，既然玩就玩最正宗的，so我选择U盘镜像双系统。<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/pc_config_new.png" alt="系统属性"></p>
+<p>###游戏开始<br>下面正式开始安装，step by step。</p>
+<ol>
+<li><p><strong>数据备份</strong><br>先别着急，你备份了吗？如果你看到这里，说明你选择了风险最大的一条路，在游戏开始之前，一定要做好<strong>数据备份</strong>，<strong>数据备份</strong>，<strong>数据备份</strong>。</p>
+</li>
+<li><p><strong>创建磁盘分区</strong></p>
+<ul>
+<li>按住<strong>Win + X</strong>，选择<strong>“磁盘管理”</strong>:<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/disk_overall.PNG" alt="磁盘管理概览"></li>
+<li>选择剩余空间较大的可分配磁盘，右键并选择<strong>“压缩卷”</strong>，这里选择压缩E盘50G左右的空间：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/disk_compress.PNG" alt="压缩卷"></li>
+<li>点击“压缩”之后，E盘后部出现黑色的50G<strong>“未分配空间”</strong>：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/disk_compressed.PNG" alt="50G未分配空间"><br>至此，磁盘分区过程完成。</li>
+</ul>
+</li>
+<li><p><strong>禁用快速启动(可选)</strong></p>
+<ul>
+<li>按住<strong>Win + X</strong>(请记住这个万能的组合)，选择<strong>“电源选项”</strong>，依次执行：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/power_1.PNG" alt="&quot;选择电源按钮的功能&quot;"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/power_22.PNG" alt="&quot;更改当前不可用的设置&quot;"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/power_33.PNG" alt="取消选择&quot;启用快速启动(推荐)&quot;"></li>
+</ul>
+<p>注： “快速启动”是Windows 8时代引进的新特性，建议关闭该特性的原因是，“快速启动”会影响Grub开机引导过程，可能出现无法载入Ubuntu的状况，最后选择“保存修改”。</p>
+</li>
+<li><p><strong>禁用安全启动(Secure Boot)</strong></p>
+<ul>
+<li>进入系统“设置”，依次执行：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/setting_1.PNG" alt="更新和安全"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/setting_2.PNG" alt="恢复&gt;高级启动&gt;立即重启"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/setting_3.jpg" alt="疑难解答"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/setting_4.jpg" alt="高级选项"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/setting_5.jpg" alt="启动设置"><br>执行重启(并不是什么都不做)。<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/setting_7.jpg" alt="启动设置"><br>大部分机器默认是关闭Secure Boot的，如果不放心，直接重启进Boot，简单粗暴：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/setting_8.jpg" alt="Boot&gt;Security&gt;Secure Boot"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/setting_9.jpg" alt="确保Secure Boot是Disabled"></li>
+</ul>
+<p>注：同样的，“安全启动”也是Windows 8时代为了防范RootKit病毒所采取的安全措施，但也阻止了Windows和其他操作系统的双启动，因此在载入Ubuntu镜像之前，务必确保“安全启动”已禁用。</p>
+</li>
+<li><p><strong>制作Ubuntu的启动U盘</strong><br>（用U盘安装过操作系统的童鞋可以跳过这一步）</p>
+<ul>
+<li>备份待写入的U盘</li>
+<li>进入UltraISO，打开文件：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/ultraiso_1.png" alt="打开镜像文件"></li>
+<li>启动&gt;写入硬盘映像：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/ultraiso_2.png" alt="写入硬盘映像"></li>
+<li>按默认值写入：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/ultraiso_3.png" alt="写入硬盘映像"></li>
+<li>完成写入：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/ultraiso_4.png" alt="完成硬盘映像写入"></li>
+</ul>
+</li>
+<li><p><strong>U盘安装Ubuntu</strong><br>万事俱备，跟往常重装系统一样，插上U盘，根据机器找到进入Boot的快捷键(我的是F1)，下面step by step详解。</p>
+<ul>
+<li>找到镜像U盘，调整Priority Order，Save and Exit：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_2.jpg" alt="Boot Priority Order"></li>
+</ul>
+<p>注：下次restart记得重置，否则无限循环。<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_3.jpg" alt="炫酷的起始画面"></p>
+<ul>
+<li>选择“安装Ubuntu Kylin”：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_4.jpg" alt="欢迎页"></li>
+<li>完成默认设置：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_5.jpg" alt="准备事项"></li>
+</ul>
+<p>注：如果网络和空间匀速，建议选择“安装中下载更新”和“安装这个第三方软件”。</p>
+<ul>
+<li>非常重要的一步，选择<strong>“其他选项”</strong>：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_6.jpg" alt="安装类型选择"></li>
+<li>为空闲磁盘分区：<br>在这一步会看到我们之前分配的未使用磁盘空间，我们即将为这块空闲磁盘分区，为了更方便理解接下来的操作，这里简单介绍一下安装过程所涉及到的几个主要的Linux分区：<br><code>/</code>：存储系统文件，建议10GB ~ 15GB；<br><code>swap</code>：交换分区，即Linux系统的虚拟内存，建议是物理内存的2倍；<br><code>/home</code>：home目录，存放音乐、图片及下载等文件的空间，建议最后分配所有剩下的空间；<br><code>/boot</code>：包含系统内核和系统启动所需的文件，实现双系统的关键所在，建议200M。</li>
+</ul>
+<p><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_7.jpg" alt="选择空闲磁盘"><br>选定空闲磁盘，点击<strong>+</strong>，首先分配16G空间给/分区，选择<strong>“主分区”</strong>、<strong>“空间起始位置”</strong>、<strong>Ext4</strong>和<strong>“挂载点/”</strong>：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_8.jpg" alt="创建/分区"></p>
+<p>注：实际上，一块硬盘最多容纳4个主分区，或3个主分区外加1个扩展分区，在选择分区类型时，可能会出现“安装系统时空闲分区不可用”状况，为了解决问题，下面一律选择“逻辑分区”。<br>重复创建步骤，分配16G空间给swap分区，选择<strong>“逻辑分区”(主分区已满)</strong>、<strong>“空间起始位置”</strong>、用于<strong>“交换空间”</strong>：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_9.jpg" alt="创建交换分区"></p>
+<p>接着分配200M空间给/boot分区，选择<strong>“逻辑分区”(主分区已满)</strong>、<strong>“空间起始位置”</strong>、“Ext4”和<strong>“挂载点/boot”</strong>：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_10.jpg" alt="创建/boot分区"></p>
+<p>最后将所有剩余空间分配给/home分区，选择<strong>“逻辑分区”(主分区已满)</strong>、<strong>“空间起始位置”</strong>、“Ext4”和<strong>“挂载点/home”</strong>：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_11.jpg" alt="创建/home分区"></p>
+<p>选择/boot对应的盘符作为“安装启动引导器的设备”，务必保证一致：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_12.jpg" alt="确保引导设备编号和/boot一致"></p>
+<p>将改动写入磁盘，去喝杯咖啡：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_13.jpg" alt=""></p>
+<ul>
+<li>咖啡喝完，刚好进入最后的设置：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_14.jpg" alt="地理位置"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_15.jpg" alt="键盘布局"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_16.jpg" alt="用户信息"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_17.jpg" alt="欢迎界面"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/boot_18.jpg" alt="大功告成"></li>
+</ul>
+<p>重启系统，进入Windows完成最后的引导设置。</p>
+</li>
+<li><p><strong>EasyBCD引导Ubuntu</strong><br>进入EasyBCD，选择“添加新条目”，选择Linux/BSD操作系统，在“驱动器”栏目选择接近200M的Linux分区：<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/easybcd_2.png" alt="EasyBCD设置"><br>完成条目添加后，重启电脑，会发现Windows10和Ubuntu的双系统已经完成安装，祝玩得开心！<br><img src="http://7xqm74.com1.z0.glb.clouddn.com/easybcd_3.png" alt="添加之后的条目"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/launching.jpg" alt="Windows引导的开机画面"><br><img src="http://7xqm74.com1.z0.glb.clouddn.com/screenshot.png" alt="Ubuntu Kylin桌面"></p>
+</li>
+</ol>
+<h3 id="u6700_u540E"><a href="#u6700_u540E" class="headerlink" title="最后"></a>最后</h3><p>  用Windows引导Ubuntu最大的好处就是，当不再需要Ubuntu的时候，直接在Windows磁盘管理中将其所在所有分区删除，然后将EasyBCD中对应条目删除即可。关于Ubuntu引导Windows的方法，如果大家感兴趣，欢迎尝试和分享。</p>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/" target="_blank" rel="external">Beginners Guide To Install Windows 10 With Ubuntu</a><br><a href="https://linux.cn/article-3061-1.html" target="_blank" rel="external">如何在 Win8 上禁用 UEFI 安全引导以安装Linux</a><br><a href="https://blog.birkhoff.me/windows-10-and-ubuntu-14_04_3-lts-dual-boot/" target="_blank" rel="external">Windows 10 Pro + Ubuntu 14.04.3 LTS 雙系統安裝</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近因为毕设重新回归Ubuntu，手头有一台装了Win10的<code>ThinkPad X240s</code>，最终成功完成了<code>Windows 10 教育版</code>和<code>Ubuntu Kylin 15.10</code> 的双系统配置，下文(多图]]>
+    </summary>
+    
+      <category term="Linux" scheme="http://volcanoo.me/tags/Linux/"/>
+    
+      <category term="简书" scheme="http://volcanoo.me/tags/%E7%AE%80%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[开篇]]></title>
+    <link href="http://volcanoo.me/2015/12/17/%E5%BC%80%E7%AF%87/"/>
+    <id>http://volcanoo.me/2015/12/17/开篇/</id>
+    <published>2015-12-17T05:37:00.000Z</published>
+    <updated>2016-01-31T05:42:55.000Z</updated>
+    <content type="html"><![CDATA[<p>我的第一篇文章，写在2015年的最后一个月，凑凑字数，浓缩一下最近的状况。</p>
+<h3 id="u5173_u4E8E_u6211"><a href="#u5173_u4E8E_u6211" class="headerlink" title="关于我"></a>关于我</h3><p>我叫<code>Volcanoo</code>，这个单词来源于我的中文名<strong>“灿”</strong>，拆解来是“火山”（volcano），避免烂大街就在最后加了个“o”，又随便组了个音标 <strong>/vɑl’kenʊ/</strong>，多念几遍应该能记得住，反正我是被这个发音洗脑了。</p>
+<p>本人出身软件工程并延续该标签至今，目前在某知名高校攻读工程硕士，目前正面临刚刚离职后的“水土不服”和一片空白的毕业设计（之前离职的这家公司暂且叫F）。在这些小麻烦面前，一千个毕业生有一千万种处境和心情，在此不一一多说。</p>
+<p>简单从“过去”、“现在”、“将来”三个纬度说说我感觉最值得记录的一些感想吧。</p>
+<h3 id="u8FC7_u53BB"><a href="#u8FC7_u53BB" class="headerlink" title="过去"></a>过去</h3><p><code>本科</code>并没有太多值得拿出来的经历，只记得前三年窝在昌平区北七家镇郑各庄村的某角落，大把时间花在当时看来比拯救世界还有价值、现在看来还不如打几场球的“事业”上。回头看过去，我很清楚记得跟哥们在哪些馆子聊过哪些段子，而这些“事业”到底是什么，现在却忘得一干二净。后来选择保研，够资格进入现在的学校，归根结底在于那几个月我知道“为什么”要做这些“事业”，而不是漫无目的花了多少时间，毕竟时间有限能做的也有限，花了时间而不知道目标，当初这个过程有多惨烈，多少年后自己都不记得。</p>
+<p><code>研一</code>，初来乍到，最强烈的感想是“看人家这校园才叫大学”。大好时光所剩不多，所以并没有花太多时间在“本科学科升级版”的文化课上，最夸张的半年同时加入了三个研究生组织，经常凌晨忙完还要搞定课业和项目，但在这个过程中我是很满足的，不像本科一样压抑，每一件事都有足够的理由推动我。快期末考的时候，F公司CEO电话问我有无意向加入，在协调一致保留我学生状态之后，我正式加入F公司。刚开始的第一个项目是搭建微信公众号，AppServ上手很快，粉丝数也在短短两个月从20w增加到60w，虽然是借着平台的力量，对于一个在校生而言，这种感觉真是太棒了。</p>
+<p><code>研二</code>，应导师派遣从北京来到太湖之滨，参与到无锡IOT实验室的科研和项目中，此处经历省略十万字。完成实验室修行之后回到北京，带着期间飙升的十几斤体重。</p>
+<p>紧接着<code>在F公司</code>的经历，微信公众平台稳定之后，又参与到iOS端的开发中，这项技能也成为我今后的一个主攻点，也是本博客将来重点介绍的内容。毕竟从F公司技术部一片空白的阶段加入，自然会面临很多技术以外的任务，比如招聘、见投资人，甚至产品和设计。在一个创业公司正规化之前，哪天晚上敌人来了，厨子拿起菜刀也得冲上去干，公司上下一股绳，在我看来，这个阶段是到目前为止最黄金的时期。我有幸跟随当时处在行业最前线的F公司，一同见证了天使和A轮的阶段性胜利，直至公司上下迁至望京SOHO，正式开启了一个新的篇章。然而，当一个浪潮掀起，已经启航的船只很轻松就能在巅峰行驶，万众瞩目，势不可当；但当浪潮稍微平息，等到其他大小船只都全速前进，此时旗舰的速度和方向就直接决定接下来的行业格局了。作为一名船员，面临毕业的压力，我在可预见的未来无法做到全身心投入，只能离开。自此，海战还在没日没夜继续，而我唯一的选择就是带着故事下船。</p>
+<h3 id="u73B0_u5728"><a href="#u73B0_u5728" class="headerlink" title="现在"></a>现在</h3><p>从望京回到五道口，从同事间讨论工作到同学间无所不谈，节奏相对慢了下来，也有充分的时间去回味和思考。在毕业季，“校招”永远是一个热门的话题，与身边同学相比，我并没有投入大把的时间和精力去准备，只是简单粗暴而有针对性地拿到深圳一家互联网金融公司的offer，并作为唯一的选项。我的理由很简单：</p>
+<blockquote>
+<ol>
+<li>公司做的事情是大势所趋</li>
+<li>培养一项技术之外的技能</li>
+<li>趁着年轻，换个城市体验几年</li>
+</ol>
+</blockquote>
+<p>跟爸妈汇报这个决定时，刚开始他们是反对的，我说完自己的想法最终得到支持。没有选择BAT等大公司是因为我压根就错过了准备校招的黄金时机，离职后也并没有花上时间去“炒冷饭”，能满足我标准公司的offer就是好的offer。看过不少关于<strong>“面临毕业，选择大公司还是小公司”</strong>以及<strong>“亲身经历告诉你校招的重要性”</strong>等文章，结论只有一个，无关题目，别人只是在描述别人的经历，自己的经历肯定要自己写。可能有点吃不到葡萄说葡萄酸了，但我很坚定自己的选择。</p>
+<p>当下毕设等其他小麻烦，时间会搞定，没必要说。</p>
+<h3 id="u63A5_u4E0B_u6765"><a href="#u63A5_u4E0B_u6765" class="headerlink" title="接下来"></a>接下来</h3><p>不想用“未来”这俩字，能预见多远呢？</p>
+<p>无非是何时答辩、何时毕业、何时入职等写死的时间点，在我看来这些都是阶段性目标，为了达成，有几件事是一定要做的，无关时间和具体目标。</p>
+<table>
+<thead>
+<tr>
+<th>关键词　　　</th>
+<th>内容　　 　　　　　　　　　　　　　</th>
+<th>期限　　　　　</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>论文</td>
+<td>每天粗读一篇，每周精读一篇</td>
+<td>毕业</td>
+</tr>
+<tr>
+<td>博客</td>
+<td>技术or随笔，每月至少一篇</td>
+<td>无</td>
+</tr>
+<tr>
+<td>朋友</td>
+<td>一定要见面， 每周至少一位</td>
+<td>无</td>
+</tr>
+<tr>
+<td>订阅</td>
+<td>个人喜好Reeder，一天一清</td>
+<td>无</td>
+</tr>
+<tr>
+<td>读书</td>
+<td>每天坚持一小时，读后感写成博客分享</td>
+<td>无</td>
+</tr>
+<tr>
+<td>爱好</td>
+<td>每周进行一次，摄影、篮球、滑雪等</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h3 id="u6700_u540E"><a href="#u6700_u540E" class="headerlink" title="最后"></a>最后</h3><p>如果你有耐心看到这里，说明我们是志同道合的人，希望能有机会分享故事、共同成长。</p>
+<p>欢迎来这里找我：</p>
+<ul>
+<li>篮球:　偏好二三四号位</li>
+<li>旅行:　愿望清单下一个是日本</li>
+<li>博客:　<a href="http://volcanoo.me">Volcanoo</a>（刚刚Hexo搭建，欢迎常来玩）</li>
+<li>摄影:　<a href="https://www.instagram.com/volcanoo_chen/" target="_blank" rel="external">Instagram</a>、<a href="http://aurorasaga.lofter.com/" target="_blank" rel="external">LOFTER</a>、<a href="https://500px.com/volcanoo" target="_blank" rel="external">500px</a></li>
+<li>邮箱:　can.chen.thu@outlook.com</li>
+<li>SNS:　<a href="https://github.com/Volcanoo" target="_blank" rel="external">GitHub</a>、<a href="http://weibo.com/aurorasaga" target="_blank" rel="external">Weibo</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我的第一篇文章，写在2015年的最后一个月，凑凑字数，浓缩一下最近的状况。</p>
+<h3 id="u5173_u4E8E_u6211"><a href="#u5173_u4E8E_u6211" class="headerlink" title="关于我"></a>关于我<]]>
+    </summary>
+    
+      <category term="日记" scheme="http://volcanoo.me/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="简书" scheme="http://volcanoo.me/tags/%E7%AE%80%E4%B9%A6/"/>
+    
+      <category term="随笔" scheme="http://volcanoo.me/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+</feed>
