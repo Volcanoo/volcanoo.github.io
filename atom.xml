@@ -3,9 +3,9 @@
   <title><![CDATA[Volcanoo's Blog]]></title>
   <subtitle><![CDATA[Remember that you are going to die]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://volcanoo.me/"/>
+  <link href="https://github.com/Volcanoo/volcanoo.github.io/"/>
   <updated>2016-01-31T06:29:24.000Z</updated>
-  <id>http://volcanoo.me/</id>
+  <id>https://github.com/Volcanoo/volcanoo.github.io/</id>
   
   <author>
     <name><![CDATA[Volcanoo]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[Windows10+Ubuntu双系统安装手记]]></title>
-    <link href="http://volcanoo.me/2016/01/31/Windows10-Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%89%8B%E8%AE%B0/"/>
-    <id>http://volcanoo.me/2016/01/31/Windows10-Ubuntu双系统安装手记/</id>
+    <link href="https://github.com/Volcanoo/volcanoo.github.io/2016/01/31/Windows10-Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%89%8B%E8%AE%B0/"/>
+    <id>https://github.com/Volcanoo/volcanoo.github.io/2016/01/31/Windows10-Ubuntu双系统安装手记/</id>
     <published>2016-01-31T06:27:48.000Z</published>
     <updated>2016-01-31T06:29:24.000Z</updated>
     <content type="html"><![CDATA[<p>最近因为毕设重新回归Ubuntu，手头有一台装了Win10的<code>ThinkPad X240s</code>，最终成功完成了<code>Windows 10 教育版</code>和<code>Ubuntu Kylin 15.10</code> 的双系统配置，下文(多图慎入)是我完成整个过程的手记。</p>
@@ -98,16 +98,16 @@
     <![CDATA[<p>最近因为毕设重新回归Ubuntu，手头有一台装了Win10的<code>ThinkPad X240s</code>，最终成功完成了<code>Windows 10 教育版</code>和<code>Ubuntu Kylin 15.10</code> 的双系统配置，下文(多图]]>
     </summary>
     
-      <category term="Linux" scheme="http://volcanoo.me/tags/Linux/"/>
+      <category term="Linux" scheme="https://github.com/Volcanoo/volcanoo.github.io/tags/Linux/"/>
     
-      <category term="简书" scheme="http://volcanoo.me/tags/%E7%AE%80%E4%B9%A6/"/>
+      <category term="简书" scheme="https://github.com/Volcanoo/volcanoo.github.io/tags/%E7%AE%80%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[开篇]]></title>
-    <link href="http://volcanoo.me/2015/12/17/%E5%BC%80%E7%AF%87/"/>
-    <id>http://volcanoo.me/2015/12/17/开篇/</id>
+    <link href="https://github.com/Volcanoo/volcanoo.github.io/2015/12/17/%E5%BC%80%E7%AF%87/"/>
+    <id>https://github.com/Volcanoo/volcanoo.github.io/2015/12/17/开篇/</id>
     <published>2015-12-17T05:37:00.000Z</published>
     <updated>2016-01-31T05:42:55.000Z</updated>
     <content type="html"><![CDATA[<p>我的第一篇文章，写在2015年的最后一个月，凑凑字数，浓缩一下最近的状况。</p>
@@ -176,10 +176,10 @@
 <ul>
 <li>篮球:　偏好二三四号位</li>
 <li>旅行:　愿望清单下一个是日本</li>
-<li>博客:　<a href="http://volcanoo.me">Volcanoo</a>（刚刚Hexo搭建，欢迎常来玩）</li>
+<li>博客:　<a href="http://volcanoo.me" target="_blank" rel="external">Volcanoo</a>（刚刚Hexo搭建，欢迎常来玩）</li>
 <li>摄影:　<a href="https://www.instagram.com/volcanoo_chen/" target="_blank" rel="external">Instagram</a>、<a href="http://aurorasaga.lofter.com/" target="_blank" rel="external">LOFTER</a>、<a href="https://500px.com/volcanoo" target="_blank" rel="external">500px</a></li>
 <li>邮箱:　can.chen.thu@outlook.com</li>
-<li>SNS:　<a href="https://github.com/Volcanoo" target="_blank" rel="external">GitHub</a>、<a href="http://weibo.com/aurorasaga" target="_blank" rel="external">Weibo</a></li>
+<li>SNS:　<a href="https://github.com/Volcanoo">GitHub</a>、<a href="http://weibo.com/aurorasaga" target="_blank" rel="external">Weibo</a></li>
 </ul>
 ]]></content>
     <summary type="html">
@@ -187,11 +187,11 @@
 <h3 id="u5173_u4E8E_u6211"><a href="#u5173_u4E8E_u6211" class="headerlink" title="关于我"></a>关于我<]]>
     </summary>
     
-      <category term="日记" scheme="http://volcanoo.me/tags/%E6%97%A5%E8%AE%B0/"/>
+      <category term="日记" scheme="https://github.com/Volcanoo/volcanoo.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
     
-      <category term="简书" scheme="http://volcanoo.me/tags/%E7%AE%80%E4%B9%A6/"/>
+      <category term="简书" scheme="https://github.com/Volcanoo/volcanoo.github.io/tags/%E7%AE%80%E4%B9%A6/"/>
     
-      <category term="随笔" scheme="http://volcanoo.me/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://github.com/Volcanoo/volcanoo.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
