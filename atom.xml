@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[Volcanoo's Blog]]></title>
-  <subtitle><![CDATA[Remember that you are going to die]]></subtitle>
+  <subtitle><![CDATA[Remember you are going to die]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://volcanoo.me/"/>
   <updated>2016-01-31T06:29:24.000Z</updated>
